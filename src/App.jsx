@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Deserts from './Components/Deserts'
+import LoginForm from './Components/LoginForm'
 import Navbar from './Components/Navbar'
 import Vegetarian from './Components/Vegetarian'
 import About from './Pages/About'
@@ -14,6 +15,7 @@ function App() {
 
   return (
     <div className="App">
+      <LoginForm/>
       <Navbar/>
       <h1>Bienvenidos a Menues DH</h1>
       <Routes>
