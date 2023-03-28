@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
+import ChildComponent from './Clase 19/ChildComponent'
+import LoboEstepario from './Clase 19/LoboEstepario'
+import ParentComponent from './Clase 19/ParentComponent'
 import Deserts from './Components/Deserts'
 import LoginForm from './Components/LoginForm'
 import Navbar from './Components/Navbar'
@@ -15,23 +18,28 @@ import RecipeDetail from './Pages/RecipeDetail'
 
 function App() {
 
-  const [recipes, setRecipes] = useState([])
+  // const [recipes, setRecipes] = useState([])
     
-  const apiKey = '68d481a0fbc340308fbf934f836ee8c6'
+  // const apiKey = '68d481a0fbc340308fbf934f836ee8c6'
 
-  const url = 'https://api.spoonacular.com/recipes/random?number=10&apiKey=' + apiKey
+  // const url = 'https://api.spoonacular.com/recipes/random?number=10&apiKey=' + apiKey
  
-  console.log(recipes)
+  // console.log(recipes)
 
-  useEffect(() => {
-      fetch(url)
-      .then(res => res.json())
-      .then(data => setRecipes(data.recipes))
-  }, [])
+  // useEffect(() => {
+  //     fetch(url)
+  //     .then(res => res.json())
+  //     .then(data => setRecipes(data.recipes))
+  // }, [])
+
 
   return (
     <div className="App">
-      <Navbar/>
+        <ParentComponent />
+        <LoboEstepario />
+
+
+      {/* <Navbar/>
       <h1>Bienvenidos a Menues DH</h1>
       <Routes>
         <Route path='/' element={<Home/>}>
@@ -46,7 +54,7 @@ function App() {
         <Route path='/acerca' element={<About/>}/>
         <Route path='*' element={<NotFound/>}/>
         
-      </Routes>
+      </Routes> */}
 
     </div>
   )
