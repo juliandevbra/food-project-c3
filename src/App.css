@@ -5,42 +5,42 @@
   text-align: center;
 }
 
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
 .navbar {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
 
-.parent{
-  padding: 20px;
-  height: 62vh;
-  background-color: #bbbbbb;
-  color:#000;
+.list-container{
+  display: grid;
+  grid-template-columns: auto auto auto;
 }
 
-
-.child{
-  width: 90%;
-  height: 60%;
-  display: block;
-  margin: auto;
-  background-color: #8282f2;
-}
-
-
-.lobo-estepario{
-  background-color: beige;
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 50px;
-  margin-right: 10px;
-  color: #000;
+.card {
+  width: 250px;
+  height: 300px;
+  border: 1px solid beige;
+  background-color: #5e5e5e80;
+  border-radius: 10px;
+  margin: 10px;
   padding: 10px;
 }
 
-
-.lobo{
-  width: 80px;
-  height: 80px;
-  margin-right: 10px;
+.card-img {
+  width: 200px;
+  object-fit: cover;
+  margin-bottom: 15px;
 }

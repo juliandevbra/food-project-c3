@@ -2,9 +2,10 @@ import React from 'react'
 
 const Card = ({recipe}) => {
   return (
-    <div >
-        <h3>{recipe.title}</h3>
-        <img src={recipe.image} alt="" />
+    <div className='card'>
+        <h4 className='title'>{recipe.title}</h4>
+        <img src={recipe.image} alt="" className='card-img'/>
+        <button>Ver detalle</button>
     </div>
   )
 }
