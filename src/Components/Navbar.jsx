@@ -1,8 +1,18 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useRecipeStates } from '../Context/Context'
 
 const Navbar = () => {
-    const navigate = useNavigate()
+  
+  const {setAuth} = useRecipeStates()
+  
+  const navigate = useNavigate()
+
+  const logout = () => {
+    localStorage.removeItem('token')
+    setAuth(false)
+  }
+
   return (
     <div className='navbar'>
         <button onClick={() => navigate(-1)}>↩</button>
@@ -12,6 +22,7 @@ const Navbar = () => {
         <Link to='/acerca'><h3>Acerca de</h3></Link>
         <Link to='/vegetariano'><h3>Vegetarianos</h3></Link>
         <Link to='/postres'><h3>Postres</h3></Link>
+        <button onClick={logout}>Logout</button>
     </div>
   )
 }

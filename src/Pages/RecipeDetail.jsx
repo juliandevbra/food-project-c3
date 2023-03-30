@@ -1,18 +1,39 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useRecipeStates } from '../Context/Context'
 
 const RecipeDetail = () => {
-  const {recipes} = useRecipeStates()
+  const [recipeSel, setRecipeSel] = useState({})
+
   const params = useParams()
-  console.log(params)
-  const recipeSelected = recipes.find((recipe) => recipe.id == params.id)
-  console.log(recipeSelected)
+
+  const url = `https://api.spoonacular.com/recipes/${params.id}/information?apiKey=68d481a0fbc340308fbf934f836ee8c6`
+
+  useEffect(() => {
+    axios(url)
+    .then(res => {
+      console.log(res)
+      setRecipeSel(res.data)
+    })
+  }, [])
+
+  const addFav = () => {
+    localStorage.setItem('recipe', JSON.stringify(recipeSel))
+  }
+  const showFav = () => {
+    let recipeFav = localStorage.getItem('recipe')
+    let parsedFav = JSON.parse(recipeFav)
+    console.log(parsedFav)
+  }
+
   return (
     <div>
-       <h2>{recipeSelected.title}</h2>
-       <img src={recipeSelected.image} alt="" />
-       <h4>{recipeSelected.instructions}</h4>
+       <h2>{recipeSel.title}</h2>
+       <img src={recipeSel.image} alt="" />
+       <h4>{recipeSel.instructions}</h4>
+       <button onClick={addFav}>Añadir a ⭐</button>
+       <button onClick={showFav}>Mostrar ⭐</button>
     </div>
   )
 }
